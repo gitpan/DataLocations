@@ -1,0 +1,118 @@
+                  =========================================
+                    Package "Data::Locations" Version 5.0
+                  =========================================
+
+
+               Copyright (c) 1997, 1998, 1999 by Steffen Beyer.
+                             All rights reserved.
+
+
+Prerequisites:
+--------------
+
+Perl version 5.004 (subversion 0) or higher, and a C compiler.
+
+
+Preliminary steps for use with ActiveState's port of Perl 5.005:
+----------------------------------------------------------------
+
+(For the Win32 platform)
+
+Edit the file "Makefile.PL" and remove all of the "#" characters
+which currently comment out the attributes "ABSTRACT", "AUTHOR"
+and "CAPI".
+
+
+Installation:
+-------------
+
+=============================================================================
+ALWAYS unpack and build Perl modules OUTSIDE the Perl source and installation
+tree! (You might otherwise inadvertently corrupt your Perl installation!)
+=============================================================================
+
+Note that installation under Windows NT/95 is easiest with the "native"
+"Perl for Win32" port by Perl developer Gurusamy Sarathy, available from:
+
+                http://www.perl.com/CPAN/authors/id/GSAR/
+
+Quick installation guide for experienced users:
+-----------------------------------------------
+
+    UNIX:                 Win32/Borland C++:      Win32/MS Visual C++:
+    =====                 ==================      ====================
+
+    > perl Makefile.PL    > perl Makefile.PL      > perl Makefile.PL
+    > make                > dmake                 > nmake
+    > make test           > dmake test            > nmake test
+    > make install        > dmake install         > nmake install
+
+Detailed installation guide:
+----------------------------
+
+ 1) Change directory to the directory that has been created by unpacking this
+    package ("cd Data-Locations-5.0").
+
+ 2) Type "perl Makefile.PL" (or whatever the name and path of your Perl 5
+    binary is).
+
+    This will create a "Makefile" with the appropriate parameters for your
+    system (for instance, where the install directories are, and so on).
+
+ 3) Type "make".
+
+    (For installation under Windows NT/95, use "dmake" (Borland C++) or
+    "nmake" (MS Visual C++) instead!)
+
+    This will create a dynamically linkable library file that will be linked
+    to Perl later, at runtime, provided your system supports dynamic linking.
+
+    Please refer to the MakeMaker documentation for instructions on how
+    to build a new Perl with statically linked libraries (invoke "perldoc
+    ExtUtils::MakeMaker" for this), if your system does NOT support dynamic
+    linking!
+
+    Should you encounter any compiler warnings or errors (like the redefi-
+    nition of certain types already defined by your system), please contact
+    me via e-mail at <sb@engelschall.com>, sending me your compiler output
+    (both STDOUT and STDERR). Thank you!
+
+    This command also creates a temporary installation in the "blib" sub-
+    directory, which is used to run "make test", and from where the module
+    is copied to its final destination by "make install".
+
+ 4) Now issue "make test" (or "dmake test" or "nmake test", respectively).
+
+    The output should look somewhat like this:
+
+    PERL_DL_NONLAZY=1 /sw/bin/perl -I./blib/arch -I./blib/lib
+    -I/sw/pkg/perl/lib/5.00502/i386-freebsd -I/sw/pkg/perl/lib/5.00502
+    -e 'use Test::Harness qw(&runtests $verbose); $verbose=0; runtests @ARGV;'
+    t/*.t
+    t/00____version.....ok
+    t/01________new.....ok
+    t/02___refcount.....ok
+    t/03___filename.....ok
+    t/04______print.....ok
+    t/05______loops.....ok
+    t/06_____printf.....ok
+    t/07____println.....ok
+    t/08_______read.....ok
+    t/09______reset.....ok
+    t/10___traverse.....ok
+    t/11_______dump.....ok
+    t/12_____delete.....ok
+    t/13___toplevel.....ok
+    t/14________tie.....ok
+    t/15__example_1.....ok
+    t/16__example_2.....ok
+    t/17__example_3.....ok
+    t/18__example_4.....ok
+    All tests successful.
+    Files=19, Tests=746, 9 wallclock secs (6.73 cusr + 0.76 csys = 7.48 CPU)
+
+ 5) At last, type "make install" (or "dmake install", "nmake install").
+
+ 6) Share and enjoy!
+
+
